@@ -15,7 +15,7 @@
           id="username"
           name="username"
           type="text"
-          autocomplete="username"
+          autocomplete="off"
           required
           autofocus
         />
@@ -28,6 +28,46 @@
           type="password"
           autocomplete="new-password"
           required
+        />
+      </section>
+      <section>
+        <label for="passwordConfirm">Confirm Password</label>
+        <input
+          id="passwordConfirm"
+          name="passwordConfirm"
+          type="password"
+          autocomplete="new-password"
+          required
+        />
+      </section>
+      <section>
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="Optional"
+        />
+      </section>
+      <section>
+        <label for="firstName">First Name</label>
+        <input
+          id="firstName"
+          name="firstName"
+          type="text"
+          autocomplete="given-name"
+          placeholder="required"
+        />
+      </section>
+      <section>
+        <label for="lastName">Last Name</label>
+        <input
+          id="lastName"
+          name="lastName"
+          type="text"
+          autocomplete="family-name"
+          placeholder="Optional"
         />
       </section>
       <button type="submit">sign up</button>
