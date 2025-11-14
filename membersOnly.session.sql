@@ -1,5 +1,5 @@
 BEGIN;
-
+-- DROP table users, messages, "session"; REMOVE THIS BEFORE PROD
 CREATE TABLE IF NOT EXISTS users (
   id          SERIAL PRIMARY KEY,
   username    VARCHAR(36) UNIQUE NOT NULL,
@@ -10,11 +10,10 @@ CREATE TABLE IF NOT EXISTS users (
   member      BOOLEAN NOT NULL DEFAULT false,
   admin       BOOLEAN NOT NULL DEFAULT false
 );
-
 CREATE TABLE IF NOT EXISTS messages (
   id                SERIAL PRIMARY KEY,
   author_id         INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  profile_id        INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  profile_id        INTEGER REFERENCES users(id) ON DELETE CASCADE,
   title             VARCHAR(280),
   message           TEXT NOT NULL,
   time_stamp        TIMESTAMPTZ NOT NULL DEFAULT NOW(),
