@@ -1,22 +1,10 @@
 const passport = require("passport");
 const querys = require("../models/queries");
-const { validationResult } = require("express-validator");
 
 exports.getSignup = (req, res, next) => {
   res.render("signup");
 };
 exports.postSignup = async (req, res, next) => {
-  // this gets basically passed in by the authrouters validation middleware
-  // should probably change this to its own handlesignupvalidation and
-  // then just pass it to next middleware
-  // below
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.render("signup", {
-      errors: errors.array(),
-    });
-  }
-  // above ^^^^^^^^^^^^^^^^
   try {
     await querys.signUp(req.body.username, req.body.password);
     res.redirect("/login");
