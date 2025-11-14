@@ -36,7 +36,7 @@ passport.deserializeUser(async (id, done) => {
   // you can grab anything you want from the user table here too. like auth
   try {
     const { rows } = await pool.query(
-      "SELECT id, username FROM users WHERE id = $1", // not using * here removes password from user
+      "SELECT id, username,email,first_name,last_name,member,admin FROM users WHERE id = $1", // not using * here removes password from user
       [id]
     );
     const user = rows[0];
