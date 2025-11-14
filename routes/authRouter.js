@@ -4,7 +4,7 @@ const authRouter = express.Router();
 const { validateSignup } = require("../validators/authValidators");
 
 authRouter.get("/sign-up", authController.getSignup);
-authRouter.post("/sign-up", validateSignup, authController.postSignup); // <--- here
+authRouter.post("/sign-up", validateSignup, authController.postSignup); 
 
 authRouter.get("/login", authController.getLogin);
 authRouter.post("/login", authController.postLogin);
