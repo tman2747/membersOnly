@@ -6,10 +6,16 @@ exports.getSignup = (req, res, next) => {
 };
 exports.postSignup = async (req, res, next) => {
   try {
-    await querys.signUp(req.body.username, req.body.password);
+    await querys.signUp(
+      req.body.username,
+      req.body.password,
+      req.body.email,
+      req.body.firstName,
+      req.body.lastName
+    );
     res.redirect("/login");
   } catch (error) {
-    console.log("error in signup");
+    console.log("error during signup");
     next(error);
   }
 };
@@ -19,9 +25,25 @@ exports.getLogin = (req, res, next) => {
 };
 // i can add the express validator to this if I want but its not really needed unless I want to add messages i guess
 exports.postLogin = (req, res, next) => {
-  return passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
+  passport.authenticate("local", (error, user, info) => {
+    // THIS CALLBACK is where `done` returns to from passport.js config
+    if (error) {
+      return next(error);
+    }
+
+    //failed login
+    if (!user) {
+      res.render("login", { error: info.message });
+      return;
+    }
+
+    //sucssesful Login
+    req.logIn(user, (error) => {
+      if (error) {
+        return next(error);
+      }
+      res.redirect("/");
+    });
   })(req, res, next);
 };
 
