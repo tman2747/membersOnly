@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS messages (
 
 INSERT into users (username,password,email,first_name,member,admin) values('tman2747','','triston@gmail.com','triston',true,true);
 SELECT* from users;
-rollback;
+COMMIT;
 `;
 
 // async function main() {
