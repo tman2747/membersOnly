@@ -7,15 +7,13 @@
     <title>Document</title>
   </head>
   <body>
-    <div>
-      <% if (currentUser){ %>
-      <a href="/logout">Logout</a>
-      <% }else{ %>
-      <a href="/login">Login</a> <a href="/sign-up">Sign Up</a>
-      <% } %>
+    <%- include('./partials/navbar') %>
+    <div class="pageContent">
+      <div>
+        hello <% if(currentUser){ %> <%- currentUser.username %> <% } %>
+      </div>
+      <%- stuff %>
+      <a href="/protectedPage">Protected Page</a>
     </div>
-    <div>hello <% if(currentUser){ %> <%- currentUser.username %> <% } %></div>
-    <%- stuff %>
-    <a href="/protectedPage">Protected Page</a>
   </body>
 </html>
