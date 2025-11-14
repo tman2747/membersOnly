@@ -33,7 +33,8 @@ exports.postLogin = (req, res, next) => {
 
     //failed login
     if (!user) {
-      res.render("login", { error: info.message });
+      const errors = [{ msg: info.message }]; // seems kinda crazy to include a you got the username right but not the password message
+      res.render("login", { errors: errors });
       return;
     }
 
