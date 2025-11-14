@@ -1,6 +1,6 @@
 // const { Client } = require("pg");
 
-const SQL = `BEGIN;
+const SQL = `
 
 CREATE TABLE IF NOT EXISTS users (
   id          SERIAL PRIMARY KEY,
@@ -25,8 +25,6 @@ CREATE TABLE IF NOT EXISTS messages (
 );
 
 INSERT into users (username,password,email,first_name,member,admin) values('tman2747','','triston@gmail.com','triston',true,true);
-SELECT* from users;
-COMMIT;
 `;
 
 // async function main() {
