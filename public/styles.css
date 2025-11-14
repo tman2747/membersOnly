@@ -76,13 +76,13 @@ input:focus {
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: underline;
+  color: rgb(0, 149, 255);
 }
 
 a:visited {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: underline;
+  color: rgb(0, 149, 255);
 }
 
 .pageContent {
