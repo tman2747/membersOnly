@@ -176,3 +176,61 @@ a:visited {
 
   height: 30px;
 }
+
+.signupPageContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupCard {
+  max-width: 50%;
+  background-color: var(--primary);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.signupCard > form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto-fit, auto-fit;
+  padding: 10px;
+  gap: 10px;
+  grid-template-areas:
+    "username email"
+    "password firstname"
+    "passwordConfirm lastName"
+    "signupButton signupButton ";
+}
+.signupUsername {
+  grid-area: username;
+}
+.signupPassword {
+  grid-area: password;
+}
+.signupPasswordConfirm {
+  grid-area: passwordConfirm;
+}
+.signupEmail {
+  grid-area: email;
+}
+.signupFirstName {
+  grid-area: firstname;
+}
+.signupLastName {
+  grid-area: lastName;
+}
+.signupButton {
+  grid-area: signupButton;
+}
+
+.signupCard > form > section {
+  display: flex;
+  flex-direction: column;
+  min-width: 0px;
+  flex: 1 1 auto;
+}
+.signupCard > form > section > input {
+  display: flex;
+}

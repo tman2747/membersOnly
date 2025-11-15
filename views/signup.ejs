@@ -7,73 +7,78 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-
     <%- include('./partials/navbar') %>
-    <h1>Sign up</h1>
-    <%- include('partials/errors.ejs') %>
-    <form action="" method="post">
-      <section>
-        <label for="username">Username</label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          autocomplete="off"
-          required
-          autofocus
-        />
-      </section>
-      <section>
-        <label for="password">Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          autocomplete="new-password"
-          required
-        />
-      </section>
-      <section>
-        <label for="passwordConfirm">Confirm Password</label>
-        <input
-          id="passwordConfirm"
-          name="passwordConfirm"
-          type="password"
-          autocomplete="new-password"
-          required
-        />
-      </section>
-      <section>
-        <label for="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          placeholder="Optional"
-        />
-      </section>
-      <section>
-        <label for="firstName">First Name</label>
-        <input
-          id="firstName"
-          name="firstName"
-          type="text"
-          autocomplete="given-name"
-          placeholder="required"
-        />
-      </section>
-      <section>
-        <label for="lastName">Last Name</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          autocomplete="family-name"
-          placeholder="Optional"
-        />
-      </section>
-      <button type="submit">sign up</button>
-    </form>
+    <div class="pageContent">
+      <div class="signupPageContent">
+        <div class="signupCard">
+          <h1>Sign up</h1>
+          <%- include('partials/errors.ejs') %>
+          <form action="" method="post">
+            <section class="signupUsername">
+              <label for="username">Username*</label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                autocomplete="off"
+                required
+                autofocus
+              />
+            </section>
+            <section class="signupPassword">
+              <label for="password">Password*</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                required
+              />
+            </section>
+            <section class="signupPasswordConfirm">
+              <label for="passwordConfirm">Confirm Password*</label>
+              <input
+                id="passwordConfirm"
+                name="passwordConfirm"
+                type="password"
+                autocomplete="new-password"
+                required
+              />
+            </section>
+            <section class="signupEmail">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="Optional"
+              />
+            </section>
+            <section class="signupFirstName">
+              <label for="firstName">First Name*</label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                autocomplete="given-name"
+                placeholder="required"
+              />
+            </section>
+            <section class="signupLastName">
+              <label for="lastName">Last Name</label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                autocomplete="family-name"
+                placeholder="Optional"
+              />
+            </section>
+            <button class="signupButton" type="submit">sign up</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
