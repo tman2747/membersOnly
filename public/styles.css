@@ -14,6 +14,7 @@
 
   --success: #22946e;
   --danger: #9c2121;
+  --navbarHeight: 25px;
 }
 
 html {
@@ -99,12 +100,33 @@ a:visited {
   align-items: stretch;
   height: var(--navBarHeight);
   width: 100%;
+  font-size: 20px;
 }
-.navbarLeft {
+.navbarLeft,
+.navbarRight {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex: 1 1 0; /*flex basis 0 makes everythign grow equally*/
+  gap: 5px;
+  padding: 0px 10px;
+}
+.navbarLeft {
+}
+.navProfile {
+  display: flex;
+  flex-direction: row;
+}
+.profilePicture {
+  display: flex;
+  width: var(--navbarHeight);
+  height: var(--navbarHeight);
+}
+.profilePicture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 .navbarMiddle {
   width: 70vw;
@@ -114,8 +136,5 @@ a:visited {
   height: var(--navBarHeight);
 }
 .navbarRight {
-  display: flex;
   justify-content: flex-end;
-  align-items: center;
-  flex: 1 1 0; /*flex basis 0 makes everythign grow equally*/
 }
