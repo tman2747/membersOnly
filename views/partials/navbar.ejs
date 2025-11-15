@@ -1,24 +1,27 @@
 <div class="navbar">
   <div class="navbarLeft">
-    <div><a href="/">Home</a></div>
+    <a class="navbarLink" href="/">Home</a>
     <!-- TODO -->
-    <a href="">
+    <% if (currentUser){ %>
+    <a class="navbarLink" href="/profile/<%-currentUser.username %>">
       <div class="navProfile">
         <div class="profilePicture">
           <img src="./imgs/blackbackgroundwithface.png" alt="" />
         </div>
-        <div>username</div>
+        <div><%-currentUser.username%></div>
       </div>
     </a>
+    <% } %>
   </div>
   <div class="navbarMiddle">
     <search><input type="text" placeholder="search" /></search>
   </div>
   <div class="navbarRight">
     <% if (currentUser){ %>
-    <a href="/logout">Logout</a>
+    <a class="navbarLink" href="/logout">Logout</a>
     <% }else{ %>
-    <a href="/login">Login</a> <a href="/sign-up">Sign Up</a>
+    <a class="navbarLink" href="/login">Login</a>
+    <a class="navbarLink" href="/sign-up">Sign Up</a>
     <% } %>
   </div>
 </div>

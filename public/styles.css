@@ -5,16 +5,16 @@
 }
 
 :root {
-  --primary: #ffffff;
+  --primary: #46acff;
+  --primary-text-color: white;
 
-  --secondary-1: #01040f;
-  --secondary-2: #1e2025;
+  --background-color: #1c1c1c;
+  --accent-color: #312ae2;
   --secondary-3: #35373d;
-  --secondary-4: #4f5055;
 
   --success: #22946e;
   --danger: #9c2121;
-  --navbarHeight: 25px;
+  --navbarHeight: 50px;
 }
 
 html {
@@ -44,8 +44,9 @@ body {
   display: flex;
   /* same with this*/
   flex-direction: column;
-  background-color: #b8b8b8;
-  font-size: 16px;
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+  font-size: 20px;
 }
 
 img,
@@ -67,23 +68,23 @@ select {
 
 input {
   padding: 0px 0px;
-  border: var(--secondary-2) solid 1px;
+  border: var(--accent-color) solid 1px;
 }
 
 input:focus {
-  border: var(--secondary-2) solid 1px;
+  border: var(--accent-color) solid 1px;
   box-shadow: none;
   outline: none;
 }
 
 a {
   text-decoration: underline;
-  color: rgb(0, 149, 255);
+  color: var(--primary);
 }
 
 a:visited {
   text-decoration: underline;
-  color: rgb(0, 149, 255);
+  color: var(--primary);
 }
 
 .pageContent {
@@ -92,15 +93,19 @@ a:visited {
   justify-content: center;
   width: 70vw;
   margin: 10px auto;
-  background-color: aquamarine;
+  background-color: rgb(56, 5, 5);
 }
 .navbar {
+  color: var(--primary-text-color);
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   height: var(--navBarHeight);
   width: 100%;
   font-size: 20px;
+  height: var(--navbarHeight);
+  background-color: var(--background-color);
+  border-bottom: 1px var(--secondary-3) solid;
 }
 .navbarLeft,
 .navbarRight {
@@ -108,19 +113,20 @@ a:visited {
   justify-content: flex-start;
   align-items: center;
   flex: 1 1 0; /*flex basis 0 makes everythign grow equally*/
-  gap: 5px;
+  gap: 10px;
   padding: 0px 10px;
 }
 .navbarLeft {
 }
+
 .navProfile {
   display: flex;
   flex-direction: row;
 }
 .profilePicture {
   display: flex;
-  width: var(--navbarHeight);
-  height: var(--navbarHeight);
+  width: 25px;
+  height: 25px;
 }
 .profilePicture > img {
   width: 100%;
@@ -129,6 +135,9 @@ a:visited {
   border-radius: 20px;
 }
 .navbarMiddle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 70vw;
 }
 .navbarMiddle > search > input {
@@ -137,4 +146,33 @@ a:visited {
 }
 .navbarRight {
   justify-content: flex-end;
+}
+
+.navbarLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary-text-color);
+  background-color: var(--primary);
+  padding: 10px;
+  border-radius: 10px;
+  height: 30px;
+  box-shadow: var(--secondary-3) 0px 0px 3px;
+}
+
+.navbarLink:visited {
+  text-decoration: none;
+  color: var(--primary-text-color);
+}
+
+.navbarMiddle > search {
+  flex: 1;
+}
+.navbarMiddle > search > input {
+  border-radius: 10px;
+  padding: 0px 10px;
+  background-color: var(--primary-text-color);
+
+  height: 30px;
 }
