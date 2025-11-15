@@ -93,7 +93,6 @@ a:visited {
   justify-content: center;
   width: 70vw;
   margin: 10px auto;
-  background-color: rgb(56, 5, 5);
 }
 .navbar {
   color: var(--primary-text-color);
@@ -223,6 +222,21 @@ a:visited {
 }
 .signupButton {
   grid-area: signupButton;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.signupButton > button {
+  border-radius: 10px;
+  background-color: var(--primary-text-color);
+  border: 1px solid rgb(0, 0, 0);
+  margin-top: 10px;
+  padding: 10px 15px;
+  width: 50%;
+}
+.signupButton > button:hover {
+  background-color: rgb(233, 233, 233);
 }
 
 .signupCard > form > section {
@@ -233,4 +247,6 @@ a:visited {
 }
 .signupCard > form > section > input {
   display: flex;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
