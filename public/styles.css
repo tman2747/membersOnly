@@ -250,3 +250,62 @@ a:visited {
   padding: 5px 10px;
   border-radius: 10px;
 }
+
+.loginContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginCard {
+  max-width: 50%;
+  background-color: var(--primary);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.loginCard > form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  grid-template-areas:
+    "username password"
+    "loginButton loginButton";
+}
+
+.loginUsername {
+  grid-area: username;
+}
+.loginPassword {
+  grid-area: password;
+}
+.loginButton {
+  grid-area: loginButton;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginCard > form > section {
+  display: flex;
+  flex-direction: column;
+}
+.loginButton > button {
+  border-radius: 10px;
+  background-color: var(--primary-text-color);
+  border: 1px solid rgb(0, 0, 0);
+  margin-top: 10px;
+  padding: 10px 15px;
+  width: 50%;
+}
+.loginButton > button:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.loginCard > form > section > input {
+  display: flex;
+  padding: 5px 10px;
+  border-radius: 10px;
+}

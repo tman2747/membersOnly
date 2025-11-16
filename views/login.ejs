@@ -9,31 +9,39 @@
   </head>
   <body>
     <%- include('./partials/navbar') %>
-    <h1>Sign in</h1>
-    <form action="" method="post">
-      <%- include('./partials/errors') %>
-      <section>
-        <label for="username">Username</label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          autocomplete="username"
-          required
-          autofocus
-        />
-      </section>
-      <section>
-        <label for="current-password">Password</label>
-        <input
-          id="current-password"
-          name="password"
-          type="password"
-          autocomplete="current-password"
-          required
-        />
-      </section>
-      <button type="submit">Sign in</button>
-    </form>
+    <div class="pageContent">
+      <div class="loginContent">
+        <div class="loginCard">
+          <h1>Sign in</h1>
+          <form action="" method="post">
+            <%- include('./partials/errors') %>
+            <section class="loginUsername">
+              <label for="username">Username</label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                autocomplete="username"
+                required
+                autofocus
+              />
+            </section>
+            <section class="loginPassword">
+              <label for="current-password">Password</label>
+              <input
+                id="current-password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+              />
+            </section>
+            <div class="loginButton">
+              <button type="submit">Sign in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
