@@ -5,6 +5,7 @@ const passport = require("passport");
 require("./config/passport"); // initializes strategy + serialize/deserialize
 
 // include routers
+const { profileRouter } = require("./routes/profileRouter");
 const { indexRouter } = require("./routes/indexRouter");
 const { authRouter } = require("./routes/authRouter");
 
@@ -57,6 +58,7 @@ app.use((req, res, next) => {
 });
 
 // routes
+app.use("/profile", profileRouter);
 app.use("/", authRouter);
 app.use("/", indexRouter);
 

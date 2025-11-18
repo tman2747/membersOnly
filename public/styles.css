@@ -309,3 +309,34 @@ a:visited {
   padding: 5px 10px;
   border-radius: 10px;
 }
+
+.userProfileCard {
+  border-bottom: grey 1px solid;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 0px;
+  gap: 10px;
+}
+.userProfilePicture {
+  width: 100px;
+  height: 100px;
+}
+.questionForm {
+  padding: 10px 0px;
+}
+.questionForm > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.questionForm > form > textarea {
+  resize: none;
+  max-width: 50vw;
+  padding: 10px;
+  width: 100%;
+}
+.questionForm > form > button {
+  max-width: 50vw;
+  width: 100%;
+}
