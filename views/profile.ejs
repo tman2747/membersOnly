@@ -17,14 +17,37 @@
           </div>
           <div><%- profile.username %> <%if (profile.member){%> ✔ <%}%></div>
         </div>
+        <%if(messages){ messages.forEach(element => { %>
+        <div class="thread">
+          <div class="message"><%- element.message %></div>
+          <form action="/profile/reply" method="post">
+            <input
+              type="hidden"
+              name="parentMessageId"
+              value="<%- element.message_id %>"
+            />
+            <input
+              type="hidden"
+              name="profileUsername"
+              value="<%- profile.username %>"
+            />
+            <input type="hidden" name="profileID" value="<%- profile.id%>" />
+            <div class="reply"><input type="text" name="message" /></div>
+            <button type="submit">reply</button>
+          </form>
+        </div>
+
+        <% })} %>
+
         <div class="questionForm">
           <form action="" method="post">
             <textarea
-              id="question"
-              name="question"
+              id="message"
+              name="message"
               rows="2"
               placeholder="Ask a question"
             ></textarea>
+            <input type="hidden" name="profileId" value="<%- profile.id%>" />
             <button type="submit">?</button>
           </form>
         </div>
