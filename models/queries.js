@@ -21,7 +21,6 @@ exports.getProfileMessagesByID = async (id) => {
     "SELECT messages.parent_message_id,messages.id as message_id, messages.author_id, users.username as author, messages.message, messages.profile_id,profile_user.username as profile_user,messages.time_stamp,messages.anonymous from messages join users on messages.author_id = users.id join users as profile_user on profile_user.id=messages.profile_id where messages.profile_id=$1;",
     [id]
   );
-  console.log(rows);
   const messages = new Map();
 
   const rootMessages = [];
@@ -43,8 +42,6 @@ exports.getProfileMessagesByID = async (id) => {
       }
     }
   });
-  console.log("messages: ", messages);
-  console.log("root messages: ", rootMessages);
   return rootMessages;
 };
 exports.addMessageToProfile = async (authorId, message, profile_id) => {
@@ -63,6 +60,11 @@ exports.replyToMessage = async (
     "insert into messages (parent_message_id, profile_id, author_id, message) values($1,$2,$3,$4)",
     [parentMessageId, profileId, authorId, message]
   );
+};
+
+exports.getUsers = async () => {
+  const { rows } = await pool.query("select * from users;");
+  return rows;
 };
 // exports.addUser = async (name, date) => {
 //   await pool.query("INSERT INTO users (username,post) VALUES($1,$2)", [
