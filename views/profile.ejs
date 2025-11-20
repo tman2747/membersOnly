@@ -17,14 +17,18 @@
           </div>
           <div><%- profile.username %> <%if (profile.member){%> ✔ <%}%></div>
         </div>
-        <%if(messages){ messages.forEach(element => { %>
+        <%if(messages){ messages.forEach(rootMessage => { %>
         <div class="thread">
-          <div class="message"><%- element.message %></div>
+          <div class="message"><%- rootMessage.message %></div>
+
+          <% rootMessage.replies.forEach(reply => {%>
+          <div class="messageReply">&#9; <%- reply.message%></div>
+          <%}); %>
           <form action="/profile/reply" method="post">
             <input
               type="hidden"
               name="parentMessageId"
-              value="<%- element.message_id %>"
+              value="<%- rootMessage.message_id %>"
             />
             <input
               type="hidden"
