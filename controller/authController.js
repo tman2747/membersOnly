@@ -23,7 +23,7 @@ exports.postSignup = async (req, res, next) => {
 exports.getLogin = (req, res, next) => {
   res.render("login");
 };
-// i can add the express validator to this if I want but its not really needed unless I want to add messages i guess
+
 exports.postLogin = (req, res, next) => {
   passport.authenticate("local", (error, user, info) => {
     // THIS CALLBACK is where `done` returns to from passport.js config
