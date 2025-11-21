@@ -1,5 +1,5 @@
 BEGIN;
--- DROP table users, messages, "session"; REMOVE THIS BEFORE PROD
+DROP table users, messages, "session"; REMOVE THIS BEFORE PROD
 CREATE TABLE IF NOT EXISTS users (
   id          SERIAL PRIMARY KEY,
   username    VARCHAR(36) UNIQUE NOT NULL,
@@ -31,4 +31,6 @@ WITH (OIDS=FALSE);
 ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 CREATE INDEX "IDX_session_expire" ON "session" ("expire");
+-- end session table
+
 rollback;
