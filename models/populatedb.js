@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
   member      BOOLEAN NOT NULL DEFAULT false,
   admin       BOOLEAN NOT NULL DEFAULT false
 );
+
 CREATE TABLE IF NOT EXISTS messages (
   id                SERIAL PRIMARY KEY,
   author_id         INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -21,17 +22,16 @@ CREATE TABLE IF NOT EXISTS messages (
   parent_message_id INTEGER REFERENCES messages(id) ON DELETE CASCADE,
   anonymous         BOOLEAN NOT NULL DEFAULT true
 );
+
 -- session table
 CREATE TABLE IF NOT EXISTS "session" (
   "sid" varchar NOT NULL COLLATE "default",
   "sess" json NOT NULL,
-  "expire" timestamp(6) NOT NULL
-)
-WITH (OIDS=FALSE);
+  "expire" timestamp(6) NOT NULL,
+  CONSTRAINT "session_pkey" PRIMARY KEY ("sid")
+);
 
-ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
-
-CREATE INDEX "IDX_session_expire" ON "session" ("expire");
+CREATE INDEX IF NOT EXISTS "IDX_session_expire" ON "session" ("expire");
 -- end session table
 `;
 
