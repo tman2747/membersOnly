@@ -1,6 +1,6 @@
 @font-face {
   font-family: jetBrains-mono;
-  src: url("./fonts/JetBrainsMono-Regular.ttf");
+  src: url("./fonts/JetBrainsMono-Regular.woff2");
   font-weight: normal;
 }
 
@@ -343,4 +343,11 @@ a:visited {
 
 .messageReply {
   margin-left: 10px; /*reply tab*/
+}
+
+.questionPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }

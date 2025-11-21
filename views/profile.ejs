@@ -23,7 +23,7 @@
 
           <% rootMessage.replies.forEach(reply => {%>
           <div class="messageReply">&#9; <%- reply.message%></div>
-          <%}); %>
+          <%}); %> <% if (currentUser){ %>
           <form action="/profile/reply" method="post">
             <input
               type="hidden"
@@ -39,10 +39,10 @@
             <div class="reply"><input type="text" name="message" /></div>
             <button type="submit">reply</button>
           </form>
+          <%}%>
         </div>
 
-        <% })} %>
-
+        <% })} %> <% if(currentUser){ %>
         <div class="questionForm">
           <form action="" method="post">
             <textarea
@@ -55,7 +55,11 @@
             <button type="submit">?</button>
           </form>
         </div>
-        <% } %>
+        <% }else{ %>
+        <div class="questionPlaceholder questionForm">
+          sign in to ask a question
+        </div>
+        <% } %> <% } %>
       </div>
     </div>
   </body>
