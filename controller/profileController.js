@@ -16,11 +16,12 @@ exports.getProfile = async (req, res, next) => {
 exports.postQuestion = async (req, res, next) => {
   const message = req.body.message;
   const authorId = req.body.profileId;
+  console.log(req.path);
   if (req.user) {
     const posterID = req.user.id;
     queries.addMessageToProfile(posterID, req.body.message, req.body.profileId);
   }
-  res.redirect(`${req.path}`);
+  res.redirect(`/profile${req.path}`);
 };
 
 exports.postReply = async (req, res, next) => {
