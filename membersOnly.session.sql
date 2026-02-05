@@ -1,5 +1,4 @@
 BEGIN;
-DROP table users, messages, "session"; REMOVE THIS BEFORE PROD
 CREATE TABLE IF NOT EXISTS users (
   id          SERIAL PRIMARY KEY,
   username    VARCHAR(36) UNIQUE NOT NULL,

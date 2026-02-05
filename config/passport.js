@@ -1,7 +1,7 @@
 const pool = require("../models/pool");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 // passport automatically looks for fields called username/password
 passport.use(
@@ -9,7 +9,7 @@ passport.use(
     try {
       const { rows } = await pool.query(
         "SELECT * FROM users WHERE username = $1",
-        [username]
+        [username],
       );
       const user = rows[0];
       if (!user) {
@@ -25,7 +25,7 @@ passport.use(
     } catch (err) {
       return done(err);
     }
-  })
+  }),
 );
 
 passport.serializeUser((user, done) => {
@@ -37,7 +37,7 @@ passport.deserializeUser(async (id, done) => {
   try {
     const { rows } = await pool.query(
       "SELECT id, username,email,first_name,last_name,member,admin FROM users WHERE id = $1", // not using * here removes password from user
-      [id]
+      [id],
     );
     const user = rows[0];
     done(null, user);
